@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Hatch.it",
-    "slug": "Hatch.it",
+    "name": "hatch.it",
+    "slug": "hatch.it",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

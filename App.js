@@ -1,22 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { Component } from 'react';
+import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
-import styled from 'styled-components';
-
-const Main = styled.SafeAreaView`
-  display: flex;
-  background-color: #e2cca8;
-  width: 100%;
-  height: 100%; 
-  justify-content:center;
-  align-Items: center;
-`
 
 export default function App() {
   return (
-    <Main>
+    <SafeAreaView style={styles.appWrapper}>
       <Text>hatch.it</Text>
       <StatusBar style="auto" />
-    </Main>
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  appWrapper: {
+    flex: 1,
+    backgroundColor: 'lavender',
+    width: '100%',
+    height: '100%', 
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+});
