@@ -24,3 +24,11 @@ const todoSchema = new Schema({
   duration: Number,
   complete: Boolean,
 });
+
+const Pets = model('Pets', petSchema);
+const Users = model('Users', userSchema);
+const Todos = model('Todos', todoSchema);
+
+module.exports = {
+  Pets, Users, Todos,
+};
