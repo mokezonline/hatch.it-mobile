@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 import { SafeAreaView, View, Text, StyleSheet, Pressable, TextInput } from 'react-native';
 
 const SignUp = () => {
+  const onSubmit = () => {
+
+  }
+  
   return (
     <SafeAreaView style={styles.wrapper}>
       <Text style={styles.header}>Sign Up</Text>
@@ -21,7 +25,10 @@ const SignUp = () => {
         placeholderTextColor="#a4f0c4"
         secureTextEntry={true}
       />
-      <Pressable style={styles.submit}>
+      <Pressable style={({ pressed }) => [
+        { backgroundColor: pressed ? "#c4e5eb" : "#a4f0c4" },
+        styles.submit
+        ]}>
         <Text style={styles.submitText}>Submit</Text>
       </Pressable>
     </SafeAreaView>
@@ -61,7 +68,6 @@ const styles = StyleSheet.create({
     margin: 12,
     padding: 10,
     borderRadius: 13,
-    backgroundColor: '#a4f0c4',
     justifyContent: 'center',
     alignItems: 'center',
   },
