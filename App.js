@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import SignUp from './screens/login.jsx';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.appWrapper}>
-      <Text>hatch.it</Text>
-      <StatusBar style="auto" />
+      <SignUp />
     </SafeAreaView>
   );
 }
@@ -14,10 +14,9 @@ export default function App() {
 const styles = StyleSheet.create({
   appWrapper: {
     flex: 1,
-    backgroundColor: 'lavender',
+    flexDirection: 'row',
+    backgroundColor: '#3c4961',
     width: '100%',
-    height: '100%', 
-    justifyContent: 'center',
-    alignItems: 'center',
+    height: '100%'
   }
 });
