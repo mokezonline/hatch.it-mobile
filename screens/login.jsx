@@ -1,53 +1,37 @@
-import React, { useEffect, useState } from 'react';
-import { SafeAreaView, View, Text, StyleSheet, Pressable, TextInput } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, SafeAreaView, Pressable } from 'react-native';
+import { TextInput } from 'react-native-gesture-handler';
 import axios from 'axios';
+import Colors from '../styles/Colors.js';
 
-const SignUp = () => {
+const LogIn = () => {
   const [ email, setEmail ] = useState('');
-  const [ user, setUser ] = useState('');
   const [ password, setPassword ] = useState('');
-
-  const handleSubmit = () => {
-    axios.post('http://10.0.2.2:3000/users', { email, user, password })
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  }
-
   return (
-    <SafeAreaView style={styles.wrapper}>
-      <Text style={styles.header}>Sign Up</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        placeholderTextColor="#a4f0c4"
-        onChangeText={setEmail}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Name"
-        placeholderTextColor="#a4f0c4"
-        onChangeText={setUser}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        placeholderTextColor="#a4f0c4"
-        secureTextEntry={true}
-        onChangeText={setPassword}
-      />
-      <Pressable onPress={handleSubmit} style={({ pressed }) => [
-        { backgroundColor: pressed ? "#c4e5eb" : "#a4f0c4" },
-        styles.submit
-        ]}>
-        <Text style={styles.submitText}>Submit</Text>
-      </Pressable>
+    <SafeAreaView style={ styles.wrapper }>
+     <Text style={ styles.header }>Log In</Text>
+     <TextInput
+      style={styles.input} 
+      placeholder="Email"
+      placeholderTextColor={ Colors.primary }
+      onChangeText={ setEmail }
+     />
+     <TextInput
+      style={styles.input} 
+      placeholder="Password"
+      placeholderTextColor={ Colors.primary }
+      onChangeText={ setEmail }
+     />
+     <Pressable style={ ({ pressed } ) => [
+       { backgroundColor: pressed ? "#c4e5eb" : Colors.primary },
+       styles.submit 
+     ] }
+     >
+       <Text style={styles.submitText}>Submit</Text>
+    </ Pressable>
     </SafeAreaView>
-  );
-}
+    );
+};
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -56,7 +40,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   header: {
-    color: '#a4f0c4',
+    color: Colors.primary,
     fontSize: 35,
     fontWeight: 'bold',
     padding: 10,
@@ -65,12 +49,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   input: {
+    backgroundColor: Colors.trim,
+    color: Colors.primary,
     height: 45,
     width: 230,
     margin: 12,
     padding: 10,
-    backgroundColor: '#4a628b',
-    color: '#a4f0c4',
     borderRadius: 13,
     fontSize: 20,
     justifyContent: 'center',
@@ -92,4 +76,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default SignUp;
+export default LogIn;
