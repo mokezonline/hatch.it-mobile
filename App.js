@@ -1,14 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
-import SignUp from './screens/SignUp.jsx';
-import LogIn from './screens/LogIn.jsx';
-import Colors from './styles/Colors.js';
+
+import Navigator from './navigation/Navigator';
+import SignUp from './screens/SignUp';
+import LogIn from './screens/LogIn';
+import Colors from './styles/Colors';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.appWrapper}>
-      <LogIn />
+      <Navigator />
     </SafeAreaView>
   );
 }

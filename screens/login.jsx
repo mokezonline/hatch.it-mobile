@@ -2,11 +2,17 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, Pressable } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import axios from 'axios';
+
 import Colors from '../styles/Colors.js';
 
-const LogIn = () => {
+const LogIn = (props) => {
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
+
+  const handleSubmit = () => {
+    
+  }
+
   return (
     <SafeAreaView style={ styles.wrapper }>
      <Text style={ styles.header }>Log In</Text>
@@ -28,7 +34,13 @@ const LogIn = () => {
      ] }
      >
        <Text style={styles.submitText}>Submit</Text>
-    </ Pressable>
+      </ Pressable>
+      <Pressable onPress={() => {
+        props.navigation.navigate({ routeName: 'SignUp' })
+      }}
+      style={styles.switchWrapper}>
+        <Text style={styles.switchToLogin}>Don't have an account? Click here!</Text>
+      </Pressable>
     </SafeAreaView>
     );
 };
@@ -73,6 +85,17 @@ const styles = StyleSheet.create({
     color: '#4a628b',
     fontSize: 20,
     fontWeight: 'bold',
+  },
+  switchWrapper: {
+    padding: 10,
+    margin: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  switchToLogin: {
+    color: Colors.primary,
+    fontSize: 18,
   }
 });
 

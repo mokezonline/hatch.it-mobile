@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { SafeAreaView, View, Text, StyleSheet, Pressable, TextInput } from 'react-native';
 import axios from 'axios';
 
-const SignUp = () => {
+import Colors from '../styles/Colors.js';
+
+const SignUp = (props) => {
   const [ email, setEmail ] = useState('');
   const [ user, setUser ] = useState('');
   const [ password, setPassword ] = useState('');
@@ -44,6 +46,12 @@ const SignUp = () => {
         styles.submit
         ]}>
         <Text style={styles.submitText}>Submit</Text>
+      </Pressable>
+      <Pressable onPress={() => {
+        props.navigation.navigate({ routeName: 'LogIn' })
+      }} 
+      style={styles.switchWrapper}>
+        <Text style={styles.switchToLogin}>Already have an account? Click here!</Text>
       </Pressable>
     </SafeAreaView>
   );
@@ -89,6 +97,17 @@ const styles = StyleSheet.create({
     color: '#4a628b',
     fontSize: 20,
     fontWeight: 'bold',
+  },
+  switchWrapper: {
+    padding: 10,
+    margin: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  switchToLogin: {
+    color: Colors.primary,
+    fontSize: 18,
   }
 });
 
